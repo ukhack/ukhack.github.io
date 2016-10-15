@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-15T12:04:07.087Z</updated>
+  <updated>2016-10-15T12:12:30.064Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://yoursite.com/2016/10/13/myfirst/"/>
     <id>http://yoursite.com/2016/10/13/myfirst/</id>
     <published>2016-10-13T15:43:18.741Z</published>
-    <updated>2016-10-15T12:04:07.087Z</updated>
+    <updated>2016-10-15T12:12:30.064Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Git-的基本语法"><a href="#Git-的基本语法" class="headerlink" title="Git 的基本语法"></a>Git 的基本语法</h3><h5 id="新建本地-repository"><a href="#新建本地-repository" class="headerlink" title="新建本地 repository"></a>新建本地 repository</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#新建工作目录</div><div class="line">cd d:\workset</div><div class="line">mkdir gitone</div><div class="line">#初始化本地仓库</div><div class="line">git init</div></pre></td></tr></table></figure>
+<p>&lt;– more –&gt;</p>
 <h5 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h5><p>​    Github 的格式严格要求需要 _layouts,_posts 文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#_layouts 为页面的布局文件夹</div><div class="line">mkdir _layouts</div><div class="line"># _posts 为最新文章</div><div class="line">mkdir _posts</div><div class="line"></div><div class="line">#设置文件，主目录</div><div class="line">vim _config.yml</div><div class="line">#baseurl:/gitone</div><div class="line"></div><div class="line">#default.html 是默认格式</div><div class="line">vim _layout/default.html(内容下附)</div><div class="line">#文章内容格式必须为 yyyy-mm-dd-title(.html/.md)</div><div class="line">vim _posts/2016-01-12-myGithubPages.html(内容下附)</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- default.html --&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">　　　　<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line">　　　　<span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">　　　　&#123;&#123; content &#125;&#125;</div><div class="line">　　<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -42,7 +43,9 @@
     </summary>
     
     
-      <category term="Blog,Github" scheme="http://yoursite.com/tags/Blog-Github/"/>
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
     
   </entry>
   

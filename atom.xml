@@ -4,9 +4,9 @@
   <subtitle>极客笔记</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ukhack.github.com/"/>
+  <link href="https://ukhack.github.io/"/>
   <updated>2016-10-17T08:28:34.084Z</updated>
-  <id>http://ukhack.github.com/</id>
+  <id>https://ukhack.github.io/</id>
   
   <author>
     <name>Zhang rui</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>RESTful 手札（一）</title>
-    <link href="http://ukhack.github.com/2016/10/17/2016-10-17-RESTful-1/"/>
-    <id>http://ukhack.github.com/2016/10/17/2016-10-17-RESTful-1/</id>
+    <link href="https://ukhack.github.io/2016/10/17/2016-10-17-RESTful-1/"/>
+    <id>https://ukhack.github.io/2016/10/17/2016-10-17-RESTful-1/</id>
     <published>2016-10-16T16:00:00.000Z</published>
     <updated>2016-10-17T08:28:34.084Z</updated>
     
@@ -80,16 +80,16 @@
     </summary>
     
     
-      <category term="RESTful" scheme="http://ukhack.github.com/tags/RESTful/"/>
+      <category term="RESTful" scheme="https://ukhack.github.io/tags/RESTful/"/>
     
-      <category term="编程学习" scheme="http://ukhack.github.com/tags/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+      <category term="编程学习" scheme="https://ukhack.github.io/tags/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>第一次面试java研发实习</title>
-    <link href="http://ukhack.github.com/2016/10/15/2016-10-15-%E6%93%8E%E5%A4%A9%E7%A7%91%E6%8A%80/"/>
-    <id>http://ukhack.github.com/2016/10/15/2016-10-15-擎天科技/</id>
+    <link href="https://ukhack.github.io/2016/10/15/2016-10-15-%E6%93%8E%E5%A4%A9%E7%A7%91%E6%8A%80/"/>
+    <id>https://ukhack.github.io/2016/10/15/2016-10-15-擎天科技/</id>
     <published>2016-10-14T16:00:00.000Z</published>
     <updated>2016-10-17T08:28:12.991Z</updated>
     
@@ -105,16 +105,16 @@
     </summary>
     
     
-      <category term="面试" scheme="http://ukhack.github.com/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://ukhack.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="实习" scheme="http://ukhack.github.com/tags/%E5%AE%9E%E4%B9%A0/"/>
+      <category term="实习" scheme="https://ukhack.github.io/tags/%E5%AE%9E%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Hi Git!</title>
-    <link href="http://ukhack.github.com/2016/10/11/Hi-Git/"/>
-    <id>http://ukhack.github.com/2016/10/11/Hi-Git/</id>
+    <link href="https://ukhack.github.io/2016/10/11/Hi-Git/"/>
+    <id>https://ukhack.github.io/2016/10/11/Hi-Git/</id>
     <published>2016-10-10T16:00:00.000Z</published>
     <updated>2016-10-17T08:29:28.608Z</updated>
     
@@ -135,14 +135,14 @@
     </summary>
     
     
-      <category term="Git" scheme="http://ukhack.github.com/tags/Git/"/>
+      <category term="Git" scheme="https://ukhack.github.io/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>搭建 Blog 笔记 (一)</title>
-    <link href="http://ukhack.github.com/2016/01/12/myfirst/"/>
-    <id>http://ukhack.github.com/2016/01/12/myfirst/</id>
+    <link href="https://ukhack.github.io/2016/01/12/myfirst/"/>
+    <id>https://ukhack.github.io/2016/01/12/myfirst/</id>
     <published>2016-01-11T16:00:00.000Z</published>
     <updated>2016-10-17T08:29:55.034Z</updated>
     
@@ -167,9 +167,9 @@
     </summary>
     
     
-      <category term="Blog" scheme="http://ukhack.github.com/tags/Blog/"/>
+      <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
     
-      <category term="Github" scheme="http://ukhack.github.com/tags/Github/"/>
+      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
     
   </entry>
   

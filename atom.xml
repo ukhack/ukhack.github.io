@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ukhack.github.io/"/>
-  <updated>2016-10-17T08:28:34.084Z</updated>
+  <updated>2016-10-18T11:53:15.428Z</updated>
   <id>https://ukhack.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://ukhack.github.io/2016/10/17/2016-10-17-RESTful-1/"/>
     <id>https://ukhack.github.io/2016/10/17/2016-10-17-RESTful-1/</id>
     <published>2016-10-16T16:00:00.000Z</published>
-    <updated>2016-10-17T08:28:34.084Z</updated>
+    <updated>2016-10-18T11:53:15.428Z</updated>
     
     <content type="html"><![CDATA[<h1 id="RESTful-学习手记（一）"><a href="#RESTful-学习手记（一）" class="headerlink" title="RESTful 学习手记（一）"></a>RESTful 学习手记（一）</h1><h5 id="2016-10-17-周一"><a href="#2016-10-17-周一" class="headerlink" title="2016-10-17 周一"></a>2016-10-17 周一</h5><p>在如今前后端分离的大潮流下，诞生了各种 API 框架。其中最火发展最成熟的 RESTful API 设计思想也催生了很多新潮的 API 框架。</p>
 <blockquote>
@@ -35,7 +35,7 @@
 <p>这两种方式都是合理的，可在实际项目中酌情选择</p>
 <h2 id="API-版本"><a href="#API-版本" class="headerlink" title="API 版本"></a>API 版本</h2><p>api 版本号应该显式的约定在在 url 中</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">https://api.domains.com/v1</div><div class="line">https://domains.com/api/v1/</div></pre></td></tr></table></figure>
-<p>Github 的 api 隐藏在接收到的 http head 信息中。</p>
+<p>Github 的 api 隐藏在接收到的 http <code>head</code> 信息中。</p>
 <p>使用版本号可以让你在更新 api 时避免破坏旧版本的 api</p>
 <h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>Endpoint 应该是复数名词而不是动词。在 RESTful 中，一个网址即对应一个资源。</p>
 <p>形如：</p>
@@ -43,8 +43,8 @@
 <p>是合理的。</p>
 <p>而形如：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">https://api.domains.com/v1/pickSoaps</div><div class="line">https://api.domains.com/v1/becomeGay</div><div class="line">https://api.domains.com/v1/getProgrammers</div></pre></td></tr></table></figure>
-<p>这种传统的 get\set 或者包含其他动词的 Endpoint 应该避免。</p>
-<p>那么我们该怎么实现资源的 CRUD 呢？</p>
+<p>这种传统的 get\set 或者包含其他动词的 <code>Endpoint</code> 应该避免。</p>
+<p>那么我们该怎么实现资源的 <code>CRUD</code> 呢？</p>
 <h2 id="动词"><a href="#动词" class="headerlink" title="动词"></a>动词</h2><p>RESTful API 核心的设计思想就是通过 HTTP 协议原生的传输方法执行 <a href="http://baike.baidu.com/view/913128.htm" target="_blank" rel="external">CRUD</a></p>
 <p>常用的 HTTP 动词如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GET (SELECT)    : 从服务器获取资源。</div><div class="line">POST (CREATE)   : 在服务器新建一个资源</div><div class="line">PUT (UPDATE)    : 在服务器更新一个资源（修改后的完整资源）</div><div class="line">PATCH (UPDATE)  : 在服务器更新一个资源（修改的某一项属性）</div><div class="line">DELETE (DELETE) : 在服务器删除资源</div></pre></td></tr></table></figure>
@@ -53,7 +53,7 @@
 <p>那么如果我想取出某些特定的数据怎么做？</p>
 <h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><p>如果记录数量很多，我们需要对数据进行过滤。设计的 API 应该具有参数，可以返回过滤结果。可以设计冗余的参数。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- ?limit  =N           : 限制返回N个数据</div><div class="line">- ?page   =N           ：返回第N页数据</div><div class="line">- ?offset =N           ：从第N个数据开始</div><div class="line">- ?page   =N&amp;perpage=M ：返回第N页数据和每页显示M个</div><div class="line">- ?type   =something   ：类别</div><div class="line">- ?sortby =something   ：以何种属性排列</div><div class="line">- ?order  =asc/desc    ：排列顺序（升序/降序）</div></pre></td></tr></table></figure>
-<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>用户向服务器请求数据后。服务器向用户返回<a href="http://baike.baidu.com/view/1311386.htm" target="_blank" rel="external">状态码</a>和信息，常见的有：</p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>用户向服务器请求数据后。服务器向用户返回<a href="http://baike.baidu.com/view/1311386.htm" target="_blank" rel="external"><code>状态码</code></a>和信息，常见的有：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">200 OK [GET]：服务器成功返回用户请求的数据，该操作是幂等的。</div><div class="line">201 CREATED [POST/PUT/PATCH]：用户新建或修改数据成功。</div><div class="line">202 Accepted [*]：表示一个请求已经进入后台排队（异步任务）</div><div class="line">204 NO CONTENT [DELETE]：用户删除数据成功。</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">400 INVALID REQUEST [POST/PUT/PATCH]：用户发出的请求有错误，该操作是幂等的。</div><div class="line">401 Unauthorized[*]：表示用户没有权限（令牌、用户名、密码错误）。</div><div class="line">403 Forbidden   [*]：表示用户得到授权（与401错误相对），但是访问是被禁止的。</div><div class="line">404 NOT FOUND   [*]：用户发出的请求针对的是不存在的记录，该操作是幂等的。</div><div class="line">406 Not Acceptable [GET]：用户请求的格式不可得</div><div class="line">410 Gone [GET]：用户请求的资源被永久删除，且不会再得到的。</div><div class="line">422 Unprocesable entity [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。</div><div class="line">500 INTERNAL SERVER ERROR [*]：服务器发生错误，用户将无法判断发出的请求是否成功。</div></pre></td></tr></table></figure>
 <h2 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h2><p>服务器向用户返回的结果应该符合规范<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GET    /collection           ：返回资源对象的列表（数组）</div><div class="line">GET    /collection/resource  ：返回单个资源对象</div><div class="line">POST   /collection           ：返回新生成的资源对象</div><div class="line">PUT    /collection/resource  ：返回完整的资源对象</div><div class="line">PATCH  /collection/resource  ：返回完整的资源对象</div><div class="line">DELETE /collection/resource  ：返回一个空文档</div></pre></td></tr></table></figure></p>
@@ -70,7 +70,7 @@
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><blockquote>
 <p><a href="https://codeplanet.io/principles-good-restful-api-design/" target="_blank" rel="external">Principles of good RESTful API Design</a><br><a href="https://bourgeois.me/rest" target="_blank" rel="external">REST best practices</a><br><a href="http://www.cnblogs.com/moonz-wu/p/4211626.html" target="_blank" rel="external">好API的设计原则</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">RESTful设计指南</a></p>
 </blockquote>
-<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>creator : zhangrui<br>自由转载-非商用</p>
+<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
 ]]></content>
     
     <summary type="html">
@@ -91,11 +91,13 @@
     <link href="https://ukhack.github.io/2016/10/15/2016-10-15-%E6%93%8E%E5%A4%A9%E7%A7%91%E6%8A%80/"/>
     <id>https://ukhack.github.io/2016/10/15/2016-10-15-擎天科技/</id>
     <published>2016-10-14T16:00:00.000Z</published>
-    <updated>2016-10-17T08:28:12.991Z</updated>
+    <updated>2016-10-18T11:47:27.030Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="擎天科技校招面试"><a href="#擎天科技校招面试" class="headerlink" title="擎天科技校招面试"></a>擎天科技校招面试</h1><h5 id="2016-10-15-周六"><a href="#2016-10-15-周六" class="headerlink" title="2016-10-15 周六"></a>2016-10-15 周六</h5><p>　　今天参与了擎天科技的校招面试。<br>　　<br>　　本校的学生我所看到的只有三位同学。面试研发岗位的人挺多，大部分是南信工，南工大的学生。我这样的专科学历已然不够用了。<br>　　<br>​　　考官是挺随和的一个人，在面试开始时他让我大致介绍一下自己。我便说我来自哪儿，家在哪里吧啦吧啦的一堆乱七八糟的，现在想想真丢人，太紧张了 :anguished: 。<br>　　<br>　　考官提的问题其实还是蛮简单的，大致是按照简历上写的问。或许是我太紧张了，所以就想到一出是一出，我的天呐，真的是紧张到一点策略都没有。比如考官没想过问sqlserver我自己偏要作大死提学的不错，还说学的很深。任课的高老师曾经是公司的项目总监，还出了一本书，教的东西真是难的可以，仍记得当时那段时间写sql语句写的要吐，但是确实学了有一年过去了。结果考官问left join,transaction,cusor都只记得个大概了:cry:</p>
-<p>　　面试官还是蛮重视经验的，在开始不久时就询问我从什么时候学习Java,我告诉他学习了一年，并且强调一直在用Java。接着问我实际开发一个项目从什么时候开始。说真的，面试开发项目经验真的是蛮只要的！</p>
-<p>　　总结：<br>　　面试前一定要组织好语言！项目经验可以弥补“智商”的不足，一定要多多积累，在面试时才有东西可谈。</p>
+    <content type="html"><![CDATA[<h1 id="擎天科技校招面试"><a href="#擎天科技校招面试" class="headerlink" title="擎天科技校招面试"></a>擎天科技校招面试</h1><h5 id="2016-10-15-周六"><a href="#2016-10-15-周六" class="headerlink" title="2016-10-15 周六"></a>2016-10-15 周六</h5><hr>
+<p>　　今天参与了擎天科技的校招面试。<br>　　<br>　　本校的学生我所看到的只有三位同学。面试研发岗位的人挺多，大部分是南信工，南工大的学生。我这样的专科学历已然不够用了。<br>　　<br>　　考官是挺随和的一个人，在面试开始时他让我大致介绍一下自己。我便说我来自哪儿，家在哪里吧啦吧啦的一堆乱七八糟的，现在想想真丢人，太紧张了 &gt;_&lt; 。<br>　　<br>　　考官提的问题其实还是蛮简单的，大致是按照简历上写的问。或许是我太紧张了，所以就想到一出是一出，我的天呐，真的是紧张到一点策略都没有。比如考官没想过问sqlserver我自己偏要作大死提学的不错，还说学的很深。任课的高老师曾经是公司的项目总监，还出了一本书，教的东西真是难的可以，仍记得当时那段时间写sql语句写的要吐，但是确实学了有一年过去了。结果考官问left join,transaction,cusor都只记得个大概了QAQ</p>
+<p>　　面试官还是蛮重视经验的，在开始不久时就询问我从什么时候学习Java,我告诉他学习了一年，并且强调一直在用Java。接着问我实际开发一个项目从什么时候开始。说真的，面试开发项目经验真的是蛮重要的！　　</p>
+<hr>
+<p>总结：<br>　　面试前一定要组织好语言！项目经验可以弥补“智商”的不足，一定要多多积累，在面试时才有东西可谈。</p>
 ]]></content>
     
     <summary type="html">
@@ -109,6 +111,8 @@
     
       <category term="实习" scheme="https://ukhack.github.io/tags/%E5%AE%9E%E4%B9%A0/"/>
     
+      <category term="生活" scheme="https://ukhack.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
   </entry>
   
   <entry>
@@ -116,7 +120,7 @@
     <link href="https://ukhack.github.io/2016/10/11/Hi-Git/"/>
     <id>https://ukhack.github.io/2016/10/11/Hi-Git/</id>
     <published>2016-10-10T16:00:00.000Z</published>
-    <updated>2016-10-17T08:29:28.608Z</updated>
+    <updated>2016-10-18T11:46:47.510Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Git-的起源"><a href="#Git-的起源" class="headerlink" title="Git 的起源"></a>Git 的起源</h2><blockquote>
 <p>Git is a version control system that is used for software development and other version control tasks. As a distributed revision control system it is aimed at speed,data integrity, and support for distributed, non-linear workflows.</p>
@@ -136,6 +140,8 @@
     
     
       <category term="Git" scheme="https://ukhack.github.io/tags/Git/"/>
+    
+      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
     
   </entry>
   
@@ -167,9 +173,9 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
-    
       <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
+    
+      <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
     
   </entry>
   

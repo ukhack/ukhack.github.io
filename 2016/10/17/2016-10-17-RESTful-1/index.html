@@ -20,7 +20,7 @@ REST APIs are a very common topic nowaday; they are part of almost every web app
 <meta property="og:description" content="RESTful 学习手记（一）2016-10-17 周一在如今前后端分离的大潮流下，诞生了各种 API 框架。其中最火发展最成熟的 RESTful API 设计思想也催生了很多新潮的 API 框架。
 
 REST APIs are a very common topic nowaday; they are part of almost every web application. A simple,">
-<meta property="og:updated_time" content="2016-10-17T08:28:34.084Z">
+<meta property="og:updated_time" content="2016-10-18T11:53:15.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RESTful 手札（一）">
 <meta name="twitter:description" content="RESTful 学习手记（一）2016-10-17 周一在如今前后端分离的大潮流下，诞生了各种 API 框架。其中最火发展最成熟的 RESTful API 设计思想也催生了很多新潮的 API 框架。
@@ -223,7 +223,7 @@ REST APIs are a very common topic nowaday; they are part of almost every web app
 <p>这两种方式都是合理的，可在实际项目中酌情选择</p>
 <h2 id="API-版本"><a href="#API-版本" class="headerlink" title="API 版本"></a>API 版本</h2><p>api 版本号应该显式的约定在在 url 中</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">https://api.domains.com/v1</div><div class="line">https://domains.com/api/v1/</div></pre></td></tr></table></figure>
-<p>Github 的 api 隐藏在接收到的 http head 信息中。</p>
+<p>Github 的 api 隐藏在接收到的 http <code>head</code> 信息中。</p>
 <p>使用版本号可以让你在更新 api 时避免破坏旧版本的 api</p>
 <h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>Endpoint 应该是复数名词而不是动词。在 RESTful 中，一个网址即对应一个资源。</p>
 <p>形如：</p>
@@ -231,8 +231,8 @@ REST APIs are a very common topic nowaday; they are part of almost every web app
 <p>是合理的。</p>
 <p>而形如：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">https://api.domains.com/v1/pickSoaps</div><div class="line">https://api.domains.com/v1/becomeGay</div><div class="line">https://api.domains.com/v1/getProgrammers</div></pre></td></tr></table></figure>
-<p>这种传统的 get\set 或者包含其他动词的 Endpoint 应该避免。</p>
-<p>那么我们该怎么实现资源的 CRUD 呢？</p>
+<p>这种传统的 get\set 或者包含其他动词的 <code>Endpoint</code> 应该避免。</p>
+<p>那么我们该怎么实现资源的 <code>CRUD</code> 呢？</p>
 <h2 id="动词"><a href="#动词" class="headerlink" title="动词"></a>动词</h2><p>RESTful API 核心的设计思想就是通过 HTTP 协议原生的传输方法执行 <a href="http://baike.baidu.com/view/913128.htm" target="_blank" rel="external">CRUD</a></p>
 <p>常用的 HTTP 动词如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GET (SELECT)    : 从服务器获取资源。</div><div class="line">POST (CREATE)   : 在服务器新建一个资源</div><div class="line">PUT (UPDATE)    : 在服务器更新一个资源（修改后的完整资源）</div><div class="line">PATCH (UPDATE)  : 在服务器更新一个资源（修改的某一项属性）</div><div class="line">DELETE (DELETE) : 在服务器删除资源</div></pre></td></tr></table></figure>
@@ -241,7 +241,7 @@ REST APIs are a very common topic nowaday; they are part of almost every web app
 <p>那么如果我想取出某些特定的数据怎么做？</p>
 <h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><p>如果记录数量很多，我们需要对数据进行过滤。设计的 API 应该具有参数，可以返回过滤结果。可以设计冗余的参数。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- ?limit  =N           : 限制返回N个数据</div><div class="line">- ?page   =N           ：返回第N页数据</div><div class="line">- ?offset =N           ：从第N个数据开始</div><div class="line">- ?page   =N&amp;perpage=M ：返回第N页数据和每页显示M个</div><div class="line">- ?type   =something   ：类别</div><div class="line">- ?sortby =something   ：以何种属性排列</div><div class="line">- ?order  =asc/desc    ：排列顺序（升序/降序）</div></pre></td></tr></table></figure>
-<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>用户向服务器请求数据后。服务器向用户返回<a href="http://baike.baidu.com/view/1311386.htm" target="_blank" rel="external">状态码</a>和信息，常见的有：</p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>用户向服务器请求数据后。服务器向用户返回<a href="http://baike.baidu.com/view/1311386.htm" target="_blank" rel="external"><code>状态码</code></a>和信息，常见的有：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">200 OK [GET]：服务器成功返回用户请求的数据，该操作是幂等的。</div><div class="line">201 CREATED [POST/PUT/PATCH]：用户新建或修改数据成功。</div><div class="line">202 Accepted [*]：表示一个请求已经进入后台排队（异步任务）</div><div class="line">204 NO CONTENT [DELETE]：用户删除数据成功。</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">400 INVALID REQUEST [POST/PUT/PATCH]：用户发出的请求有错误，该操作是幂等的。</div><div class="line">401 Unauthorized[*]：表示用户没有权限（令牌、用户名、密码错误）。</div><div class="line">403 Forbidden   [*]：表示用户得到授权（与401错误相对），但是访问是被禁止的。</div><div class="line">404 NOT FOUND   [*]：用户发出的请求针对的是不存在的记录，该操作是幂等的。</div><div class="line">406 Not Acceptable [GET]：用户请求的格式不可得</div><div class="line">410 Gone [GET]：用户请求的资源被永久删除，且不会再得到的。</div><div class="line">422 Unprocesable entity [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。</div><div class="line">500 INTERNAL SERVER ERROR [*]：服务器发生错误，用户将无法判断发出的请求是否成功。</div></pre></td></tr></table></figure>
 <h2 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h2><p>服务器向用户返回的结果应该符合规范<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GET    /collection           ：返回资源对象的列表（数组）</div><div class="line">GET    /collection/resource  ：返回单个资源对象</div><div class="line">POST   /collection           ：返回新生成的资源对象</div><div class="line">PUT    /collection/resource  ：返回完整的资源对象</div><div class="line">PATCH  /collection/resource  ：返回完整的资源对象</div><div class="line">DELETE /collection/resource  ：返回一个空文档</div></pre></td></tr></table></figure></p>
@@ -258,7 +258,7 @@ REST APIs are a very common topic nowaday; they are part of almost every web app
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><blockquote>
 <p><a href="https://codeplanet.io/principles-good-restful-api-design/" target="_blank" rel="external">Principles of good RESTful API Design</a><br><a href="https://bourgeois.me/rest" target="_blank" rel="external">REST best practices</a><br><a href="http://www.cnblogs.com/moonz-wu/p/4211626.html" target="_blank" rel="external">好API的设计原则</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">RESTful设计指南</a></p>
 </blockquote>
-<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>creator : zhangrui<br>自由转载-非商用</p>
+<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
 
 
             

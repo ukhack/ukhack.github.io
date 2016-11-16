@@ -139,9 +139,9 @@
     </summary>
     
     
-      <category term="Git" scheme="https://ukhack.github.io/tags/Git/"/>
-    
       <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
+    
+      <category term="Git" scheme="https://ukhack.github.io/tags/Git/"/>
     
   </entry>
   
@@ -173,9 +173,9 @@
     </summary>
     
     
-      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
-    
       <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
+    
+      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
     
   </entry>
   

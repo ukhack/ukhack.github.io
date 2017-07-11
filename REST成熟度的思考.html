@@ -20,17 +20,17 @@ Recently I’ve been reading drafts of Rest In Practice: a book that a couple of
 <meta property="og:description" content="REST成熟度2016-10-18 周二上篇文章我分析了 REST 接口的命名规范，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。
 
 Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working">
-<meta property="og:image" content="https://ukhack.github.io/D:\first\source\uploads\rest1018.png">
+<meta property="og:image" content="https://ukhack.github.io/..\uploads\rest1018.png">
 <meta property="og:image" content="https://ukhack.github.io/..\uploads\rest10182.png">
 <meta property="og:image" content="https://ukhack.github.io/..\uploads\rest10183.png">
 <meta property="og:image" content="https://ukhack.github.io/..\uploads\rest1018.png">
-<meta property="og:updated_time" content="2017-07-11T10:13:52.227Z">
+<meta property="og:updated_time" content="2017-07-11T10:16:38.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST成熟度的思考">
 <meta name="twitter:description" content="REST成熟度2016-10-18 周二上篇文章我分析了 REST 接口的命名规范，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。
 
 Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working">
-<meta name="twitter:image" content="https://ukhack.github.io/D:\first\source\uploads\rest1018.png">
+<meta name="twitter:image" content="https://ukhack.github.io/..\uploads\rest1018.png">
   
     <link rel="alternative" href="/atom.xml" title="Road of web" type="application/atom+xml">
   
@@ -222,7 +222,7 @@ Recently I’ve been reading drafts of Rest In Practice: a book that a couple of
 </blockquote>
 <p>最近，我拜读了《 REST 实战》这本书的草案。我的很多同事参与了此书的编写。他们旨在研究如何在 web 服务中使用 RESTful 来解决很多企业面临的集成问题。这本书的核心观点就是： web 的存在证明了大规模可扩展的分布式系统，我们可以借鉴书里面的思想来让我们的更简单的搭建集成系统。（原谅我捉鸡的翻译）</p>
 <p>首先先祭出这张图片：</p>
-<p><img src="D:\first\source\uploads\rest1018.png" alt="rest1018"></p>
+<p><img src="..\uploads\rest1018.png" alt="rest1018"></p>
 <p>从下往上看是四级。</p>
 <h2 id="Level-0"><a href="#Level-0" class="headerlink" title="Level 0"></a>Level 0</h2><p>为什么叫 level 0 呢？那是因为这个级别在当前阶段可以说是不属于 REST 范畴的，只是用以说明 REST 发展的历史。</p>
 <p>在这个级别我们使用 XML (也有 JSON 、YAML 或者其他)，只有POX被传输，基本就是 RPC 的风格。如 SAOP也是相似的，只是格式不同而已。所以说，Level 0 是不应该属于REST的。</p>
@@ -240,8 +240,8 @@ Recently I’ve been reading drafts of Rest In Practice: a book that a couple of
 <h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><p>我们再次祭出这张图片：<br><img src="..\uploads\rest1018.png" alt="rest1018"></p>
 <p>从字面上理解 level 3 是超媒体控制。这个像是机翻的中文名看起来很是令人困惑。什么叫做超媒体控制？</p>
 <p>别急，让我来举一个简单的例子：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X curl https://**.wilddogio.com/books.json</div></pre></td></tr></table></figure>
-<p>响应：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "book1":&#123;</div><div class="line">    "name": "书1",</div><div class="line">    "next": "walletdemo.wilddogio.com/books/book2.json",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book1.json"</div><div class="line">  &#125;,</div><div class="line">  "book2":&#123;</div><div class="line">    "name": "书2",</div><div class="line">    "next": "walletdemo.wilddogio.com/books/book3.json",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book2.json"</div><div class="line">  &#125;,</div><div class="line">  "book3":&#123;</div><div class="line">    "name": "书3",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book3.json"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X curl https://*.wilddogio.com/books.json</div></pre></td></tr></table></figure>
+<p>响应：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "book1":&#123;</div><div class="line">    "name": "书1",</div><div class="line">    "next": "*.wilddogio.com/books/book2.json",</div><div class="line">    "self": "*.wilddogio.com/books/book1.json"</div><div class="line">  &#125;,</div><div class="line">  "book2":&#123;</div><div class="line">    "name": "书2",</div><div class="line">    "next": "*.wilddogio.com/books/book3.json",</div><div class="line">    "self": "*.wilddogio.com/books/book2.json"</div><div class="line">  &#125;,</div><div class="line">  "book3":&#123;</div><div class="line">    "name": "书3",</div><div class="line">    "self": "*.wilddogio.com/books/book3.json"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们看其中一个：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"book2":&#123;</div><div class="line">  "name": "书2",</div><div class="line">  "next": "walletdemo.wilddogio.com/books/book3.json",</div><div class="line">  "self": "walletdemo.wilddogio.com/books/book2.json"</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <p>Level 3 对REST请求已经没有要求，而要求响应做一定的更改。它要求响应体具有一定的自描述性：即开发者阅读了这个响应以后就算不借助api文档也能明白下一步该做什么。</p>
 <p>book2资源的响应描述了自己的url地址，以及它的下一个地址。所有的资源通过url串联在一起。这就是 Level 3似乎并没有想像中的那么难吧？不过目前 Level 3 正在制定中，并没有一个成型的规则去约束，所以我们只要满足自描述这个要求即可，而如何描述，描述成什么样子这就需要等待新的规则制定出来。</p>

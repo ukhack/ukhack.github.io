@@ -10,16 +10,27 @@
   
   
   <meta name="keywords" content="RESTful,编程学习">
-  <meta name="description" content="1">
+  <meta name="description" content="REST成熟度2016-10-18 周二上篇文章我分析了 REST 接口的命名规范，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。
+
+Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working">
 <meta property="og:type" content="article">
 <meta property="og:title" content="REST成熟度的思考">
 <meta property="og:url" content="https://ukhack.github.io/REST成熟度的思考.html">
 <meta property="og:site_name" content="Road of web">
-<meta property="og:description" content="1">
-<meta property="og:updated_time" content="2017-07-11T07:59:19.981Z">
+<meta property="og:description" content="REST成熟度2016-10-18 周二上篇文章我分析了 REST 接口的命名规范，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。
+
+Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working">
+<meta property="og:image" content="https://ukhack.github.io/D:\first\source\uploads\rest1018.png">
+<meta property="og:image" content="https://ukhack.github.io/..\uploads\rest10182.png">
+<meta property="og:image" content="https://ukhack.github.io/..\uploads\rest10183.png">
+<meta property="og:image" content="https://ukhack.github.io/..\uploads\rest1018.png">
+<meta property="og:updated_time" content="2017-07-11T10:13:52.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="REST成熟度的思考">
-<meta name="twitter:description" content="1">
+<meta name="twitter:description" content="REST成熟度2016-10-18 周二上篇文章我分析了 REST 接口的命名规范，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。
+
+Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working">
+<meta name="twitter:image" content="https://ukhack.github.io/D:\first\source\uploads\rest1018.png">
   
     <link rel="alternative" href="/atom.xml" title="Road of web" type="application/atom+xml">
   
@@ -134,8 +145,8 @@
     <h1 class="author">REST成熟度的思考</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-10-16T16:00:00.000Z" itemprop="datePublished" class="page-time">
-  2016-10-17
+            <time datetime="2016-10-17T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2016-10-18
 </time>
 
 
@@ -196,7 +207,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#REST成熟度"><span class="post-toc-number">1.</span> <span class="post-toc-text">REST成熟度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2016-10-18-周二"><span class="post-toc-number">1.0.0.0.1.</span> <span class="post-toc-text">2016-10-18 周二</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Level-0"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Level 0</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Level-1"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Level 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Level-2"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Level 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Level-3"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Level 3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后记"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">后记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引用"><span class="post-toc-number">1.5.0.1.</span> <span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#版权"><span class="post-toc-number">1.5.0.2.</span> <span class="post-toc-text">版权</span></a></li></ol></li></ol></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -204,7 +215,41 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>1</p>
+            <h1 id="REST成熟度"><a href="#REST成熟度" class="headerlink" title="REST成熟度"></a>REST成熟度</h1><h5 id="2016-10-18-周二"><a href="#2016-10-18-周二" class="headerlink" title="2016-10-18 周二"></a>2016-10-18 周二</h5><p>上篇文章我分析了<a href="https://ukhack.github.io/2016-10-17-RESTful-1.html"> REST 接口的命名规范</a>，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。</p>
+<blockquote>
+<p>Recently I’ve been reading drafts of Rest In Practice: a book that a couple of my colleagues have been working on. Their aim is to explain how to use Restful web services to handle many of the integration problems that enterprises face. At the heart of the book is the notion that the web is an existence proof of a massively scalable distributed system that works really well, and we can take ideas from that to build integrated systems more easily.</p>
+<p><a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">Martin Fowler</a></p>
+</blockquote>
+<p>最近，我拜读了《 REST 实战》这本书的草案。我的很多同事参与了此书的编写。他们旨在研究如何在 web 服务中使用 RESTful 来解决很多企业面临的集成问题。这本书的核心观点就是： web 的存在证明了大规模可扩展的分布式系统，我们可以借鉴书里面的思想来让我们的更简单的搭建集成系统。（原谅我捉鸡的翻译）</p>
+<p>首先先祭出这张图片：</p>
+<p><img src="D:\first\source\uploads\rest1018.png" alt="rest1018"></p>
+<p>从下往上看是四级。</p>
+<h2 id="Level-0"><a href="#Level-0" class="headerlink" title="Level 0"></a>Level 0</h2><p>为什么叫 level 0 呢？那是因为这个级别在当前阶段可以说是不属于 REST 范畴的，只是用以说明 REST 发展的历史。</p>
+<p>在这个级别我们使用 XML (也有 JSON 、YAML 或者其他)，只有POX被传输，基本就是 RPC 的风格。如 SAOP也是相似的，只是格式不同而已。所以说，Level 0 是不应该属于REST的。</p>
+<h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><p>在该成熟度模型中，我们可以看到。REST 入门级别是资源级别：就是将所有的请求抽象为对资源的操作。例如下面的一个例子</p>
+<p><img src="..\uploads\rest10182.png" alt="rest10182"></p>
+<p>这个接口是微信公众号的数据分析接口，对用户数据进行了资源化。我们不难看出，虽然依然是 POX 但是每一个资源都拥有其独立的 URL 地址。这就是 Level 1 的要求，每一个资源对应独立的 URL 地址。</p>
+<p>我们可以看到，微信公众号这两个接口的命名其实是不满足我上一篇文章所说的， url 应该只包含名词，而不是动词。所以我们接下来继续分析 Level 2 。</p>
+<h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><p>level 2 级别引入了 http 动词的概念，即：url中应该存在的是资源的名词形式，而不应该存在形如 get 、 set 这样的动词，我们应该在请求中用 http 动词替代 url 中的动词。</p>
+<p>常用的 HTTP 动词如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GET (SELECT)    : 从服务器获取资源。</div><div class="line">POST (CREATE)   : 在服务器新建一个资源</div><div class="line">PUT (UPDATE)    : 在服务器更新一个资源（修改后的完整资源）</div><div class="line">PATCH (UPDATE)  : 在服务器更新一个资源（修改的某一项属性）</div><div class="line">DELETE (DELETE) : 在服务器删除资源</div></pre></td></tr></table></figure>
+<p>如：</p>
+<p><img src="..\uploads\rest10183.png" alt="rest10183"></p>
+<p>这是微信公众平台的长链接获取短链接的接口，这个接口就用了名词的 shorturl 和 http 动词 POST 让开发者一目了然。而这里为什么使用 POST 而不是 GET 呢？</p>
+<p>可以这么看，获取短链接其实也是创建了一个短链接的资源，这个资源原本是不存在的。不必要过于墨守成规。我翻阅了一遍微信公众平台的 api 遗憾的是，可能是历史的原因，微信公众平台的很多接口其实只能算是一级成熟度的 REST。</p>
+<h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><p>我们再次祭出这张图片：<br><img src="..\uploads\rest1018.png" alt="rest1018"></p>
+<p>从字面上理解 level 3 是超媒体控制。这个像是机翻的中文名看起来很是令人困惑。什么叫做超媒体控制？</p>
+<p>别急，让我来举一个简单的例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X curl https://**.wilddogio.com/books.json</div></pre></td></tr></table></figure>
+<p>响应：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "book1":&#123;</div><div class="line">    "name": "书1",</div><div class="line">    "next": "walletdemo.wilddogio.com/books/book2.json",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book1.json"</div><div class="line">  &#125;,</div><div class="line">  "book2":&#123;</div><div class="line">    "name": "书2",</div><div class="line">    "next": "walletdemo.wilddogio.com/books/book3.json",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book2.json"</div><div class="line">  &#125;,</div><div class="line">  "book3":&#123;</div><div class="line">    "name": "书3",</div><div class="line">    "self": "walletdemo.wilddogio.com/books/book3.json"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们看其中一个：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"book2":&#123;</div><div class="line">  "name": "书2",</div><div class="line">  "next": "walletdemo.wilddogio.com/books/book3.json",</div><div class="line">  "self": "walletdemo.wilddogio.com/books/book2.json"</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>Level 3 对REST请求已经没有要求，而要求响应做一定的更改。它要求响应体具有一定的自描述性：即开发者阅读了这个响应以后就算不借助api文档也能明白下一步该做什么。</p>
+<p>book2资源的响应描述了自己的url地址，以及它的下一个地址。所有的资源通过url串联在一起。这就是 Level 3似乎并没有想像中的那么难吧？不过目前 Level 3 正在制定中，并没有一个成型的规则去约束，所以我们只要满足自描述这个要求即可，而如何描述，描述成什么样子这就需要等待新的规则制定出来。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>REST 就分析到这里啦，希望看到这篇文章的有心人可以将这篇理论带到实战中去。我是 zhang rui ，乐于分享不一样的知识。</p>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><blockquote>
+<p><a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">Richardson成熟度模型</a><br><a href="http://www.cnblogs.com/moonz-wu/p/4211626.html" target="_blank" rel="external">好API的设计原则</a><br><a href="https://ukhack.github.io/2016-10-17-RESTful-1.html">RESTful 学习手记（一）</a></p>
+</blockquote>
+<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
 
 
             
@@ -225,18 +270,18 @@
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/2016-10-17-RESTful-1.html" id="post-prev" class="post-nav-link">
+      <a href="/Vue-1.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">RESTful 手札（一）</h4>
+        <h4 class="title">Vue.js 手札（一）</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016-10-15-擎天科技.html" id="post-next" class="post-nav-link">
+      <a href="/2016-10-17-RESTful-1.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">第一次面试java研发实习</h4>
+        <h4 class="title">RESTful 手札（一）</h4>
       </a>
     </div>
   

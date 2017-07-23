@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ukhack.github.io/"/>
-  <updated>2016-11-16T04:05:24.752Z</updated>
+  <updated>2017-07-23T17:37:22.526Z</updated>
   <id>https://ukhack.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目中jquery遇到问题的反思和总结</title>
+    <link href="https://ukhack.github.io/%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8Jquery%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E7%9A%84%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%80%BB%E7%BB%93.html"/>
+    <id>https://ukhack.github.io/项目使用Jquery遇到问题的反思与总结.html</id>
+    <published>2016-11-14T16:00:00.000Z</published>
+    <updated>2017-07-23T17:37:22.526Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Jquery遇到问题的反思和总结"><a href="#Jquery遇到问题的反思和总结" class="headerlink" title="Jquery遇到问题的反思和总结"></a>Jquery遇到问题的反思和总结</h1><h5 id="2016-11-15-星期二"><a href="#2016-11-15-星期二" class="headerlink" title="2016-11-15 星期二"></a>2016-11-15 星期二</h5><p>这篇文章不是介绍如何使用jquery，而是旨在总结我在擎天实习期间，在项目上使用 jquery 时遇到的问题的一个反思和总结。由于项目必须兼容IE8，所以下面的内容都是基于 Jquery1.8 以及以下的版本。</p>
+<p>##问题1：绑定事件<br>我们知道，Jquery 中常用的给指定元素绑定监听事件方法之一是 bind 方法。例如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#p1'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello p1'</span>)&#125;);</div></pre></td></tr></table></figure>
+<p>显而易见的，在控制台会打印出 “hello p1” 这段字符。<br>但是 Jquery 一大功能就是对 ajax 取到的数据进行解析，然后修改 DOM 节点。很多的新的节点被动态的附加到 DOM 树上，这时候我们写好的 bind 方法对这些节点将会失效。<br>查文档得知 Jquery 还有一个方法 ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.live(type, [data], fn)</div></pre></td></tr></table></figure>
+<p>这个方法对 append,after 等等都有效。为什么这个方法对后来附加的方法有效？<br>这个原理其实可以追溯到我们刚接触到 js 时会遇到的一个问题，那就是：事件冒泡。也就是说，我们其实是将方法放在了document 这个节点，在触发点击事件时进行冒泡，最后对对象进行匹配。这又称作“事件委托”。<br>激动的改成了 live() 以后，没想到程序居然跑不起来了，这是为什么？<br>在这个文件中，我为了优化 jq 的效率用到了很多类似：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ele=$(<span class="string">'#dataForm .reportData'</span>);</div><div class="line">ele.find(<span class="string">' .dataTitle'</span>).bind....</div><div class="line">ele.find(<span class="string">' .dataDetail'</span>).bind...</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>充分利用 jq 的缓存可以优化我们的运行速度。但是恰巧，在 api 文档中我发现了如下的一个问题：</p>
+<p><img src="..\uploads\jquery1.png" alt="jquery1"></p>
+<p>.live() 方法居然是不支持 find 遍历的。其实 .live() 在 jq1.7 这个版本已经不再推荐使用了，取而代之的是 on 方法，live 方法确实也存在着很多问题。<br>换成了 .on() 以后，问题得到了解决。</p>
+<p>##问题2：待补充</p>
+<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;a href=&quot;#Jquery遇到问题的反思和总结&quot; class=&quot;headerlink&quot; title=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;/a&gt;Jquery遇到问题的反思和总结&lt;/h1&gt;&lt;h5 id=&quot;2016-11-1
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="https://ukhack.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="实习" scheme="https://ukhack.github.io/tags/%E5%AE%9E%E4%B9%A0/"/>
+    
+      <category term="生活" scheme="https://ukhack.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 手札（一）</title>
@@ -214,9 +249,9 @@
     </summary>
     
     
-      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
-    
       <category term="Git" scheme="https://ukhack.github.io/tags/Git/"/>
+    
+      <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
     
   </entry>
   
@@ -248,9 +283,9 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
-    
       <category term="Github" scheme="https://ukhack.github.io/tags/Github/"/>
+    
+      <category term="Blog" scheme="https://ukhack.github.io/tags/Blog/"/>
     
   </entry>
   

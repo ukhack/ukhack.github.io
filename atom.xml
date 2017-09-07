@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ukhack.github.io/"/>
-  <updated>2017-07-23T17:37:22.526Z</updated>
+  <updated>2017-07-23T17:44:08.965Z</updated>
   <id>https://ukhack.github.io/</id>
   
   <author>
@@ -16,14 +16,119 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://ukhack.github.io/%E5%AF%B9JS%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%BB%A5%E5%8F%8A%E9%A1%B9%E7%9B%AE%E6%AD%A3%E8%A7%84%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3.html"/>
+    <id>https://ukhack.github.io/对JS面向对象以及项目正规化的理解.html</id>
+    <published>2017-07-23T17:44:08.964Z</published>
+    <updated>2017-07-23T17:44:08.965Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript OOP的理解（一）</title>
+    <link href="https://ukhack.github.io/JavaScript%20OOP%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89.html"/>
+    <id>https://ukhack.github.io/JavaScript OOP的理解（一）.html</id>
+    <published>2016-12-15T16:00:00.000Z</published>
+    <updated>2017-07-24T03:55:33.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JavaScript-OOP的理解（一）"><a href="#JavaScript-OOP的理解（一）" class="headerlink" title="JavaScript OOP的理解（一）"></a>JavaScript OOP的理解（一）</h1><h5 id="2016-12-16-星期六"><a href="#2016-12-16-星期六" class="headerlink" title="2016-12-16 星期六"></a>2016-12-16 星期六</h5><p>这篇文章旨在记录我个人在日常编码中对 JavaScript 面向对象编程的一些理解，由于阅历原因，可能有些片面和不足，欢迎指出。</p>
+<h2 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h2><p>OOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很清楚这个概念，OOP有三大特征即：封装、继承和多态。</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是指将数据与操作包装成为一个单独的实体，数据尽可能的被隐藏在内部，而只保留一些对外的接口使之与外部联系。</p>
+<p>使用好封装可以带来以下几点好处：</p>
+<ol>
+<li><p>好的封装可以减少模块间的耦合，提高内聚性</p>
+</li>
+<li><p>可以隐藏不想被外部知道的细节，提升安全性</p>
+</li>
+<li><p>可以更精准的控制内部的成员变量</p>
+</li>
+</ol>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>OOP 的主要功能之一就是继承。我们知道，在实际项目中，代码复用是非常重要的。我们不必要为了修改一点点不同的功能而又去重新写一模一样的代码。</p>
+<p>继承是一种能力，我们可以从现有的类中派生出一个新类。被基础的类叫做“基类”或者“父类”，派生出的类叫做“派生类”或者“子类”。派生类可以从基类继承方法和变量，同时可以加入新的方法，这将不会影响父类的现有代码，同时减少了很多的重复代码。</p>
+<p>在 JAVA 项目中我们可以看到很多这样的实例，如 java.lang 包中，很多的类都被继承。或者是当前很热的 ORM 框架 Mybatis 的 resultMap 也是支持继承的。</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>在现实中，多态的例子其实很多：比如说按下F5按键，在浏览器页面和桌面是刷新，在word中是查找替换，而在PPT中又是播放。同样一个按钮，不同的场景功能就不同。</p>
+<p>那么多态的含义就好理解了：对于不同类的对象，允许他们对同一个消息响应。就是说同一个消息可以根据不同的对象来采用不同的方式。</p>
+<p>实现多态必须满足：</p>
+<ol>
+<li>完成继承</li>
+<li>完成重载</li>
+<li>父类引用指向子类</li>
+</ol>
+<p>以上是面向对象的三个基本特征，如果能够符合，那么就是面向对象。那么我们来看看 JS 如何做到面向对象。</p>
+<h2 id="JavaScript-OOP"><a href="#JavaScript-OOP" class="headerlink" title="JavaScript OOP"></a>JavaScript OOP</h2><p>上面讲了 OOP 的基本的特征，但是有一个问题我们大家心里面都是有数的。那就是：JavaScript 压根没有 class（ES2015以及更早），这就导致 JS 的编写很尴尬。<br>在我的工作过程中，我实际编写了很多的 JS 模块，纵观这些代码也是我进步的一个过程。同时我也在维护前辈们留下的代码。最为头疼的就是有时候打开一个 JS 文件，四千多行，没有注释，满屏幕都是 function xx(){…} ，项目赶得紧又没有多余时间去重写这些文件，想死的心都有了。<br>所以我宁可去维护后端也不想去维护前端，我也很无奈~究其原因就是项目组来来去去的人员变动的大，水平也参差不齐。如果他们能掌握 OOP ，那么写出来的代码也更易于阅读，对我们这些晚辈也更友好。<br>回到正题。<br>在传统的面向对象语言中，我们可以说，我为 Car 类创建了一个对象叫 Audi 。而由于JS缺少class特性，并且JS完全是基于对象的，依靠的是一套原型系统（prototype）。在 JS 中，我们可以说，我把 Car 对象扩展成了 Audi新对象。</p>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>奥迪a6是小轿车（小轿车是对象）</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>奥迪a6 价格400K，排量1.8T</td>
+<td>属性</td>
+</tr>
+<tr>
+<td>奥迪a6 起步，加油，刹车，换挡</td>
+<td>方法</td>
+</tr>
+<tr>
+<td>奥迪是小轿车类的一个实例</td>
+<td>传统的OOP</td>
+</tr>
+<tr>
+<td>奥迪是小轿车对象扩展出来的新对象</td>
+<td>基于原型的OOP</td>
+</tr>
+<tr>
+<td>奥迪 a6 中包含了坐垫，内饰等数据，以及更换坐垫，更换内饰等方法</td>
+<td>封装</td>
+</tr>
+<tr>
+<td>奥迪的起步，刹车，换挡都是扩展自小轿车对象的新对象</td>
+<td>继承</td>
+</tr>
+<tr>
+<td>我们可以调用奥迪的驾驶，宝马的驾驶，奔驰的驾驶，他们风格不同导致结果不同</td>
+<td>重载，多态</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JavaScript-OOP的理解（一）&quot;&gt;&lt;a href=&quot;#JavaScript-OOP的理解（一）&quot; class=&quot;headerlink&quot; title=&quot;JavaScript OOP的理解（一）&quot;&gt;&lt;/a&gt;JavaScript OOP的理解（一）&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="实习" scheme="https://ukhack.github.io/tags/%E5%AE%9E%E4%B9%A0/"/>
+    
+      <category term="javascript" scheme="https://ukhack.github.io/tags/javascript/"/>
+    
+      <category term="OOP" scheme="https://ukhack.github.io/tags/OOP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>项目中jquery遇到问题的反思和总结</title>
     <link href="https://ukhack.github.io/%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8Jquery%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E7%9A%84%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%80%BB%E7%BB%93.html"/>
     <id>https://ukhack.github.io/项目使用Jquery遇到问题的反思与总结.html</id>
-    <published>2016-11-14T16:00:00.000Z</published>
-    <updated>2017-07-23T17:37:22.526Z</updated>
+    <published>2016-12-05T16:00:00.000Z</published>
+    <updated>2017-07-24T02:11:01.930Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Jquery遇到问题的反思和总结"><a href="#Jquery遇到问题的反思和总结" class="headerlink" title="Jquery遇到问题的反思和总结"></a>Jquery遇到问题的反思和总结</h1><h5 id="2016-11-15-星期二"><a href="#2016-11-15-星期二" class="headerlink" title="2016-11-15 星期二"></a>2016-11-15 星期二</h5><p>这篇文章不是介绍如何使用jquery，而是旨在总结我在擎天实习期间，在项目上使用 jquery 时遇到的问题的一个反思和总结。由于项目必须兼容IE8，所以下面的内容都是基于 Jquery1.8 以及以下的版本。</p>
-<p>##问题1：绑定事件<br>我们知道，Jquery 中常用的给指定元素绑定监听事件方法之一是 bind 方法。例如:</p>
+    <content type="html"><![CDATA[<h1 id="Jquery遇到问题的反思和总结"><a href="#Jquery遇到问题的反思和总结" class="headerlink" title="Jquery遇到问题的反思和总结"></a>Jquery遇到问题的反思和总结</h1><h5 id="2016-12-6-星期二"><a href="#2016-12-6-星期二" class="headerlink" title="2016-12-6 星期二"></a>2016-12-6 星期二</h5><p>这篇文章不是介绍如何使用jquery，而是旨在总结我在擎天实习期间，在项目上使用 jquery 时遇到的问题的一个反思和总结。由于项目必须兼容IE8，所以下面的内容都是基于 Jquery1.8 以及以下的版本。</p>
+<h2 id="问题1：绑定事件"><a href="#问题1：绑定事件" class="headerlink" title="问题1：绑定事件"></a>问题1：绑定事件</h2><p>我们知道，Jquery 中常用的给指定元素绑定监听事件方法之一是 bind 方法。例如:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#p1'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello p1'</span>)&#125;);</div></pre></td></tr></table></figure>
 <p>显而易见的，在控制台会打印出 “hello p1” 这段字符。<br>但是 Jquery 一大功能就是对 ajax 取到的数据进行解析，然后修改 DOM 节点。很多的新的节点被动态的附加到 DOM 树上，这时候我们写好的 bind 方法对这些节点将会失效。<br>查文档得知 Jquery 还有一个方法 ：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.live(type, [data], fn)</div></pre></td></tr></table></figure>
@@ -31,22 +136,21 @@
 <p>充分利用 jq 的缓存可以优化我们的运行速度。但是恰巧，在 api 文档中我发现了如下的一个问题：</p>
 <p><img src="..\uploads\jquery1.png" alt="jquery1"></p>
 <p>.live() 方法居然是不支持 find 遍历的。其实 .live() 在 jq1.7 这个版本已经不再推荐使用了，取而代之的是 on 方法，live 方法确实也存在着很多问题。<br>换成了 .on() 以后，问题得到了解决。</p>
-<p>##问题2：待补充</p>
-<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
+<h2 id="问题2：待补充"><a href="#问题2：待补充" class="headerlink" title="问题2：待补充"></a>问题2：待补充</h2><h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;a href=&quot;#Jquery遇到问题的反思和总结&quot; class=&quot;headerlink&quot; title=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;/a&gt;Jquery遇到问题的反思和总结&lt;/h1&gt;&lt;h5 id=&quot;2016-11-1
+      &lt;h1 id=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;a href=&quot;#Jquery遇到问题的反思和总结&quot; class=&quot;headerlink&quot; title=&quot;Jquery遇到问题的反思和总结&quot;&gt;&lt;/a&gt;Jquery遇到问题的反思和总结&lt;/h1&gt;&lt;h5 id=&quot;2016-12-6
     
     </summary>
     
     
-      <category term="面试" scheme="https://ukhack.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
       <category term="实习" scheme="https://ukhack.github.io/tags/%E5%AE%9E%E4%B9%A0/"/>
     
       <category term="生活" scheme="https://ukhack.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="javascript" scheme="https://ukhack.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -73,7 +177,7 @@
     <link href="https://ukhack.github.io/REST%E6%88%90%E7%86%9F%E5%BA%A6%E7%9A%84%E6%80%9D%E8%80%83.html"/>
     <id>https://ukhack.github.io/REST成熟度的思考.html</id>
     <published>2016-10-17T16:00:00.000Z</published>
-    <updated>2017-07-11T10:16:38.725Z</updated>
+    <updated>2017-07-11T10:16:38.726Z</updated>
     
     <content type="html"><![CDATA[<h1 id="REST成熟度"><a href="#REST成熟度" class="headerlink" title="REST成熟度"></a>REST成熟度</h1><h5 id="2016-10-18-周二"><a href="#2016-10-18-周二" class="headerlink" title="2016-10-18 周二"></a>2016-10-18 周二</h5><p>上篇文章我分析了<a href="https://ukhack.github.io/2016-10-17-RESTful-1.html"> REST 接口的命名规范</a>，大概是从十个方面分析了这个技术。这篇文章探讨在 REST 发展过程中形成的几个成熟度模型。</p>
 <blockquote>
@@ -201,7 +305,7 @@
     <link href="https://ukhack.github.io/2016-10-15-%E6%93%8E%E5%A4%A9%E7%A7%91%E6%8A%80.html"/>
     <id>https://ukhack.github.io/2016-10-15-擎天科技.html</id>
     <published>2016-10-14T16:00:00.000Z</published>
-    <updated>2016-10-18T11:47:27.030Z</updated>
+    <updated>2016-10-18T11:47:27.031Z</updated>
     
     <content type="html"><![CDATA[<h1 id="擎天科技校招面试"><a href="#擎天科技校招面试" class="headerlink" title="擎天科技校招面试"></a>擎天科技校招面试</h1><h5 id="2016-10-15-周六"><a href="#2016-10-15-周六" class="headerlink" title="2016-10-15 周六"></a>2016-10-15 周六</h5><hr>
 <p>　　今天参与了擎天科技的校招面试。<br>　　<br>　　本校的学生我所看到的只有三位同学。面试研发岗位的人挺多，大部分是南信工，南工大的学生。我这样的专科学历已然不够用了。<br>　　<br>　　考官是挺随和的一个人，在面试开始时他让我大致介绍一下自己。我便说我来自哪儿，家在哪里吧啦吧啦的一堆乱七八糟的，现在想想真丢人，太紧张了 &gt;_&lt; 。<br>　　<br>　　考官提的问题其实还是蛮简单的，大致是按照简历上写的问。或许是我太紧张了，所以就想到一出是一出，我的天呐，真的是紧张到一点策略都没有。比如考官没想过问sqlserver我自己偏要作大死提学的不错，还说学的很深。任课的高老师曾经是公司的项目总监，还出了一本书，教的东西真是难的可以，仍记得当时那段时间写sql语句写的要吐，但是确实学了有一年过去了。结果考官问left join,transaction,cusor都只记得个大概了QAQ</p>

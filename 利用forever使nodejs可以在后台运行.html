@@ -3,29 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript OOP的理解（一） | Road of web | 极客笔记</title>
+  <title>通过forever使nodejs运行在后台 | Road of web | 极客笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
   <meta name="keywords" content="实习,javascript,OOP">
-  <meta name="description" content="JavaScript OOP的理解（一）2016-12-16 星期六这篇文章旨在记录我个人在日常编码中对 JavaScript 面向对象编程的一些理解，由于阅历原因，可能有些片面和不足，欢迎指出。
-OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很清楚这个概念，OOP有三大特征即：封装、继承和多态。
-封装封装是指将数据与操作包装成为一个单独的实体，数据尽可能的被隐藏在内部">
+  <meta name="description" content="#forever的使用
+2016-12-12 星期一我们常用node app.js这条命令来运行node应用，但是如果退出terminal就会导致node进程退出，这是我们不想看到的，那么如果想要nodejs在后台运行，并且异常退出后可以自动启动如何做到？
+最简单的办法：
+1$ nohup node app.js &amp;amp;
+但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript OOP的理解（一）">
-<meta property="og:url" content="https://ukhack.github.io/JavaScript OOP的理解（一）.html">
+<meta property="og:title" content="通过forever使nodejs运行在后台">
+<meta property="og:url" content="https://ukhack.github.io/利用forever使nodejs可以在后台运行.html">
 <meta property="og:site_name" content="Road of web">
-<meta property="og:description" content="JavaScript OOP的理解（一）2016-12-16 星期六这篇文章旨在记录我个人在日常编码中对 JavaScript 面向对象编程的一些理解，由于阅历原因，可能有些片面和不足，欢迎指出。
-OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很清楚这个概念，OOP有三大特征即：封装、继承和多态。
-封装封装是指将数据与操作包装成为一个单独的实体，数据尽可能的被隐藏在内部">
-<meta property="og:updated_time" content="2017-07-24T03:55:33.528Z">
+<meta property="og:description" content="#forever的使用
+2016-12-12 星期一我们常用node app.js这条命令来运行node应用，但是如果退出terminal就会导致node进程退出，这是我们不想看到的，那么如果想要nodejs在后台运行，并且异常退出后可以自动启动如何做到？
+最简单的办法：
+1$ nohup node app.js &amp;amp;
+但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以">
+<meta property="og:updated_time" content="2017-09-07T09:18:00.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript OOP的理解（一）">
-<meta name="twitter:description" content="JavaScript OOP的理解（一）2016-12-16 星期六这篇文章旨在记录我个人在日常编码中对 JavaScript 面向对象编程的一些理解，由于阅历原因，可能有些片面和不足，欢迎指出。
-OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很清楚这个概念，OOP有三大特征即：封装、继承和多态。
-封装封装是指将数据与操作包装成为一个单独的实体，数据尽可能的被隐藏在内部">
+<meta name="twitter:title" content="通过forever使nodejs运行在后台">
+<meta name="twitter:description" content="#forever的使用
+2016-12-12 星期一我们常用node app.js这条命令来运行node应用，但是如果退出terminal就会导致node进程退出，这是我们不想看到的，那么如果想要nodejs在后台运行，并且异常退出后可以自动启动如何做到？
+最简单的办法：
+1$ nohup node app.js &amp;amp;
+但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以">
   
     <link rel="alternative" href="/atom.xml" title="Road of web" type="application/atom+xml">
   
@@ -116,7 +122,7 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">JavaScript OOP的理解（一）</div>
+        <div class="flex-col header-title ellipsis">通过forever使nodejs运行在后台</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,11 +143,11 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">JavaScript OOP的理解（一）</h1>
+    <h1 class="author">通过forever使nodejs运行在后台</h1>
     <h5 class="subtitle">
         
-            <time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished" class="page-time">
-  2016-12-16
+            <time datetime="2016-12-11T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2016-12-12
 </time>
 
 
@@ -151,7 +157,7 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
 </header>
 
     <div class="container body-wrap">
-      <article id="post-JavaScript OOP的理解（一）" 
+      <article id="post-利用forever使nodejs可以在后台运行" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meta flex-row">
         
@@ -202,7 +208,7 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript-OOP的理解（一）"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript OOP的理解（一）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2016-12-16-星期六"><span class="post-toc-number">1.0.0.0.1.</span> <span class="post-toc-text">2016-12-16 星期六</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OOP"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">OOP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#封装"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">封装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多态"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">多态</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript-OOP"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">JavaScript OOP</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2016-12-12-星期一"><span class="post-toc-number">1.</span> <span class="post-toc-text">2016-12-12 星期一</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#版权"><span class="post-toc-number"></span> <span class="post-toc-text">版权</span></a>
             </nav>
             
         </aside>
@@ -210,73 +216,13 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="JavaScript-OOP的理解（一）"><a href="#JavaScript-OOP的理解（一）" class="headerlink" title="JavaScript OOP的理解（一）"></a>JavaScript OOP的理解（一）</h1><h5 id="2016-12-16-星期六"><a href="#2016-12-16-星期六" class="headerlink" title="2016-12-16 星期六"></a>2016-12-16 星期六</h5><p>这篇文章旨在记录我个人在日常编码中对 JavaScript 面向对象编程的一些理解，由于阅历原因，可能有些片面和不足，欢迎指出。</p>
-<h2 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h2><p>OOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很清楚这个概念，OOP有三大特征即：封装、继承和多态。</p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是指将数据与操作包装成为一个单独的实体，数据尽可能的被隐藏在内部，而只保留一些对外的接口使之与外部联系。</p>
-<p>使用好封装可以带来以下几点好处：</p>
-<ol>
-<li><p>好的封装可以减少模块间的耦合，提高内聚性</p>
-</li>
-<li><p>可以隐藏不想被外部知道的细节，提升安全性</p>
-</li>
-<li><p>可以更精准的控制内部的成员变量</p>
-</li>
-</ol>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>OOP 的主要功能之一就是继承。我们知道，在实际项目中，代码复用是非常重要的。我们不必要为了修改一点点不同的功能而又去重新写一模一样的代码。</p>
-<p>继承是一种能力，我们可以从现有的类中派生出一个新类。被基础的类叫做“基类”或者“父类”，派生出的类叫做“派生类”或者“子类”。派生类可以从基类继承方法和变量，同时可以加入新的方法，这将不会影响父类的现有代码，同时减少了很多的重复代码。</p>
-<p>在 JAVA 项目中我们可以看到很多这样的实例，如 java.lang 包中，很多的类都被继承。或者是当前很热的 ORM 框架 Mybatis 的 resultMap 也是支持继承的。</p>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>在现实中，多态的例子其实很多：比如说按下F5按键，在浏览器页面和桌面是刷新，在word中是查找替换，而在PPT中又是播放。同样一个按钮，不同的场景功能就不同。</p>
-<p>那么多态的含义就好理解了：对于不同类的对象，允许他们对同一个消息响应。就是说同一个消息可以根据不同的对象来采用不同的方式。</p>
-<p>实现多态必须满足：</p>
-<ol>
-<li>完成继承</li>
-<li>完成重载</li>
-<li>父类引用指向子类</li>
-</ol>
-<p>以上是面向对象的三个基本特征，如果能够符合，那么就是面向对象。那么我们来看看 JS 如何做到面向对象。</p>
-<h2 id="JavaScript-OOP"><a href="#JavaScript-OOP" class="headerlink" title="JavaScript OOP"></a>JavaScript OOP</h2><p>上面讲了 OOP 的基本的特征，但是有一个问题我们大家心里面都是有数的。那就是：JavaScript 压根没有 class（ES2015以及更早），这就导致 JS 的编写很尴尬。<br>在我的工作过程中，我实际编写了很多的 JS 模块，纵观这些代码也是我进步的一个过程。同时我也在维护前辈们留下的代码。最为头疼的就是有时候打开一个 JS 文件，四千多行，没有注释，满屏幕都是 function xx(){…} ，项目赶得紧又没有多余时间去重写这些文件，想死的心都有了。<br>所以我宁可去维护后端也不想去维护前端，我也很无奈~究其原因就是项目组来来去去的人员变动的大，水平也参差不齐。如果他们能掌握 OOP ，那么写出来的代码也更易于阅读，对我们这些晚辈也更友好。<br>回到正题。<br>在传统的面向对象语言中，我们可以说，我为 Car 类创建了一个对象叫 Audi 。而由于JS缺少class特性，并且JS完全是基于对象的，依靠的是一套原型系统（prototype）。在 JS 中，我们可以说，我把 Car 对象扩展成了 Audi新对象。</p>
-<table>
-<thead>
-<tr>
-<th>示例</th>
-<th>概念</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>奥迪a6是小轿车（小轿车是对象）</td>
-<td>对象</td>
-</tr>
-<tr>
-<td>奥迪a6 价格400K，排量1.8T</td>
-<td>属性</td>
-</tr>
-<tr>
-<td>奥迪a6 起步，加油，刹车，换挡</td>
-<td>方法</td>
-</tr>
-<tr>
-<td>奥迪是小轿车类的一个实例</td>
-<td>传统的OOP</td>
-</tr>
-<tr>
-<td>奥迪是小轿车对象扩展出来的新对象</td>
-<td>基于原型的OOP</td>
-</tr>
-<tr>
-<td>奥迪 a6 中包含了坐垫，内饰等数据，以及更换坐垫，更换内饰等方法</td>
-<td>封装</td>
-</tr>
-<tr>
-<td>奥迪的起步，刹车，换挡都是扩展自小轿车对象的新对象</td>
-<td>继承</td>
-</tr>
-<tr>
-<td>我们可以调用奥迪的驾驶，宝马的驾驶，奔驰的驾驶，他们风格不同导致结果不同</td>
-<td>重载，多态</td>
-</tr>
-</tbody>
-</table>
+            <p>#forever的使用</p>
+<h5 id="2016-12-12-星期一"><a href="#2016-12-12-星期一" class="headerlink" title="2016-12-12 星期一"></a>2016-12-12 星期一</h5><p>我们常用node app.js这条命令来运行node应用，但是如果退出terminal就会导致node进程退出，这是我们不想看到的，那么如果想要nodejs在后台运行，并且异常退出后可以自动启动如何做到？</p>
+<p>最简单的办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nohup node app.js &amp;</div></pre></td></tr></table></figure>
+<p>但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install forever -g   #安装</div><div class="line">$ forever start app.js          #启动</div><div class="line">$ forever stop app.js           #关闭</div><div class="line">$ forever -w app.js             #监听app.js自动重启</div><div class="line">$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误</div></pre></td></tr></table></figure>
+<h4 id="版权"><a href="#版权" class="headerlink" title="版权"></a>版权</h4><p>author : <code>zhangrui</code><br>授权     ：自由转载-非商用</p>
 
 
             
@@ -288,7 +234,7 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
             <blockquote>
                 <p>
                 本文地址：
-                <a href="https://ukhack.github.io/JavaScript OOP的理解（一）.html" target="_blank" rel="external">https://ukhack.github.io/JavaScript OOP的理解（一）.html</a>
+                <a href="https://ukhack.github.io/利用forever使nodejs可以在后台运行.html" target="_blank" rel="external">https://ukhack.github.io/利用forever使nodejs可以在后台运行.html</a>
                 </p>
                 <footer><cite><a href="https://ukhack.github.io">@Road of web</a></cite></footer>
             </blockquote>
@@ -297,18 +243,18 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
 <nav class="post-nav">
   
     <div class="waves-block waves-effect prev fl">
-      <a href="/对JS面向对象以及项目正规化的理解.html" id="post-prev" class="post-nav-link">
+      <a href="/JavaScript OOP的理解（一）.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">[no title]</h4>
+        <h4 class="title">JavaScript OOP的理解（一）</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/利用forever使nodejs可以在后台运行.html" id="post-next" class="post-nav-link">
+      <a href="/项目使用Jquery遇到问题的反思与总结.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">通过forever使nodejs运行在后台</h4>
+        <h4 class="title">项目中jquery遇到问题的反思和总结</h4>
       </a>
     </div>
   
@@ -319,7 +265,7 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JavaScript OOP的理解（一）" data-title="JavaScript OOP的理解（一）" data-url="https://ukhack.github.io/JavaScript OOP的理解（一）.html"></div>
+	<div class="ds-thread" data-thread-key="利用forever使nodejs可以在后台运行" data-title="通过forever使nodejs运行在后台" data-url="https://ukhack.github.io/利用forever使nodejs可以在后台运行.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -350,10 +296,10 @@ OOPOOP ：面向对象编程。如果接触过 JAVA 或者 C++ 那么应该很�
 
 <script>
 var BLOG_SHARE = {
-    title: "JavaScript OOP的理解（一）",
+    title: "通过forever使nodejs运行在后台",
     pic: "/img/logo.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "https://ukhack.github.io/JavaScript OOP的理解（一）.html"
+    url: "https://ukhack.github.io/利用forever使nodejs可以在后台运行.html"
 };
 </script>
 <div class="global-share" id="global-share">
